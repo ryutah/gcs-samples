@@ -49,6 +49,17 @@ func signedURL(w http.ResponseWriter, r *http.Request) {
 		Expires:        time.Now().Add(15 * time.Minute),
 		Method:         http.MethodPut,
 	})
+	// In AppEngine
+	//  account, err := appengine.ServiceAccount(ctx)
+	//  if err != nil {
+	//  	// error handling...
+	//  }
+	//  signedURL, err := storage.SignedURL(bucket, info.FileName, &storage.SignedURLOptions{
+	//  	GoogleAccessID: account,
+	//  	ContentType:    info.ContentType,
+	//  	Expires:        time.Now().Add(15 * time.Minute),
+	//  	Method:         http.MethodPut,
+	//  })
 	if err != nil {
 		log.Printf("failed to create signed url: %v", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
