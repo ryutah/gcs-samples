@@ -1,8 +1,9 @@
 package main
 
 import (
-	"gcs"
 	"net/http"
+
+	"github.com/ryutah/gcs-samples/receive-notification/gcs"
 )
 
 func init() {
