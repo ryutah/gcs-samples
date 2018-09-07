@@ -23,5 +23,10 @@ document.querySelector("#upload").addEventListener("submit", (e) => {
         body: file,
       });
     })
+    .then(() => {
+      return fetch(`/mediaurl?filename=${file.name}`);
+    })
+    .then((result) => result.json())
+    .then((body) => alert(JSON.stringify(body)))
     .catch(alert);
 });
